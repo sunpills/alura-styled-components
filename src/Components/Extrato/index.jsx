@@ -1,12 +1,20 @@
 import React from "react";
-import styled from "styled-components";
+import { extratoLista } from "../../info";
 
-import { Box } from "../UI";
+import { Box, Button } from "../UI";
+import Items from "../Items";
 
 const Extrato = () => {
     return (
-        <Box>
-            
+        <Box>{extratoLista.updates.map(({ id, type, from, value, date }) => {
+            return (
+                <Items key={id} type={type} from={from} value={value} date={date}/>
+            );
+        })
+        }
+        <Button>Ver mais</Button>
         </Box>
     )
 }
+
+export default Extrato;
